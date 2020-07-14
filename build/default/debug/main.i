@@ -84,7 +84,7 @@ typedef struct Timer_cfg_s
  uint8_t Timer_Prescaler;
  void (*Timer_Cbk_ptr)(void);
 }Timer_cfg_s;
-# 74 "./timer_config.h"
+# 82 "./timer_config.h"
 extern Timer_cfg_s Timer_Configuration0;
 extern Timer_cfg_s Timer_Configuration2;
 extern Timer_cfg_s Timer_Configuration1;
@@ -114,6 +114,11 @@ void main(void)
 
    while (1)
     {
+      ret=Timer_Start(0,250);
+while ((*((reg_type8_t)(0x000B)) & 0x04)==0){DIO_Write(1,0x20|0x10,0xFF);}
+ret=DIO_Toggle(1,0x20|0x10);
+
+
 
     ret=DIO_Read (2,0x10, &data);
     ret=DIO_Read (0,0x20, &data2);

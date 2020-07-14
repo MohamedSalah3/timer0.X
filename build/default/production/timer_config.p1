@@ -4,9 +4,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./timer_config.h: 20: {
 [s S1 `uc 1 `uc 1 `uc 1 `uc 1 `*F22 1 ]
 [n S1 Timer_cfg_s Timer_CH_NO Timer_Mode Timer_Polling_Or_Interrupt Timer_Prescaler Timer_Cbk_ptr ]
-"14
-[; ;./timer_config.h: 14: void timer0_interrupt_ovfRoutine(void);
-[v _timer0_interrupt_ovfRoutine `(v ~T0 @X0 0 ef ]
+[v F31 `(v ~T0 @X0 0 tf ]
 "3 timer_config.c
 [; ;timer_config.c: 3: Timer_cfg_s Timer_Configuration0 =
 [v _Timer_Configuration0 `S1 ~T0 @X0 1 e ]
@@ -14,10 +12,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 -> -> 0 `i `uc
--> -> 199 `i `uc
--> -> 160 `i `uc
+-> -> 192 `i `uc
+-> -> 223 `i `uc
 -> -> 0 `i `uc
-&U _timer0_interrupt_ovfRoutine
+-> -> 0 `i `*F31
 ..
 ..
 ]

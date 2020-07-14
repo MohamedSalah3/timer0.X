@@ -7,8 +7,7 @@
 
 #ifndef INTERRUPTS_H
 #define	INTERRUPTS_H
-#include "registers.h"
-#include "std_types.h"
+#include "timer.h"
 typedef void (*ptr_to_Fun)(void);
 extern ptr_to_Fun TIMER0OVF_INT;
 

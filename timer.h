@@ -34,6 +34,7 @@ ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg);
  *
  */
 ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count);
+void timer0_interrupt_ovfRoutine(void);
 
 /**
  * Input:

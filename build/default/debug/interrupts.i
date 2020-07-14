@@ -40,6 +40,7 @@ void check_my_isr(void)
   {
 
   TIMER0OVF_INT();
+  (*((reg_type8_t)(0x000B)) &=(~(1<<0x04)));
   }
 }
 
@@ -53,5 +54,5 @@ void hi_priority_int(void)
 check_my_isr();
 }
 #pragma code
-# 23 "interrupts.c"
+# 24 "interrupts.c"
 

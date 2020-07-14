@@ -1,5 +1,5 @@
 #include "interrupts.h"
-ptr_to_Fun TIMER0OVF_INT;
+ptr_to_Fun TIMER0OVF_INT=timer0_interrupt_ovfRoutine;
 
 #pragma interrupt check_my_isr
 void check_my_isr(void)
@@ -8,7 +8,7 @@ void check_my_isr(void)
   {
   /*If timer 0 overflows excute Timer0 isr*/
   TIMER0OVF_INT();
-  CLEAR_BIT(INTCON,TMR0IF);
+/*  CLEAR_BIT(INTCON,TMR0IF); */
   }
 }
 

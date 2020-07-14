@@ -5,4 +5,6 @@ interrupts.h  \
 registers.h  \
 std_types.h  \
 timer_config.h  \
-error.h 
+error.h  \
+DIO.h  \
+DIO_Config.h 

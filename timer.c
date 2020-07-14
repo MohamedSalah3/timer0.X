@@ -11,7 +11,7 @@
  * Description: Initiates the module.
  *
  */
- static Prescaler = OUTPUT;
+ static uint8_t Prescaler = OUTPUT;
 ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg)
 {
 uint8_t ret_error = E_OK;
@@ -25,12 +25,10 @@ switch (Timer_cfg->Timer_CH_NO)
             case TIMER0_INTERRUPT_MODE:
             INTCON |= GLOBAL_INT_EN;
             INTCON |=TIMER0_INTERRUPT_MODE;
-            TIMER0OVF_INT = ( Timer_cfg -> Timer_Cbk_ptr);
+          //  TIMER0OVF_INT = ( Timer_cfg -> Timer_Cbk_ptr);
             break;
             case TIMER0_POOLING_MODE:
             INTCON &= TIMER0_POOLING_MODE;
-            INTCON &= TIMER0_INTERRUPT_DISABLE;
-
             break;
             default:
             ret_error += E_NOK+INVALID_INT_POL_MODE;
@@ -136,14 +134,10 @@ ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
     /*assign Prescaler*/
     /*Assign count*/
     OPTION_REG = Prescaler;
-    if (Timer_Count <= 255) {
-    TIMER0 =Timer_Count;
-}
+//    TIMER0 = 255-Timer_Count;
 /*if bigger than 255 calculate the required ovfs to accomplish that */
 /*if pooling make a counter to count the number of overflows*/
 /*if interrupt use the same counter used when pooling to count the number of overflows*/
-
-  }
 
     break;
 
@@ -177,7 +171,7 @@ ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
 ERROR_STATUS Timer_Stop(uint8_t Timer_CH_NO)
 {
   uint8_t ret_error = E_OK;
-
+OPTION_REG = 0xFF;
   return ret_error;
 }
 /**

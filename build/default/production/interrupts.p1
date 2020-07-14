@@ -1,12 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F19 `(v ~T0 @X0 0 tf ]
+[v F49 `(v ~T0 @X0 0 tf ]
+"37 ./timer.h
+[; ;./timer.h: 37: void timer0_interrupt_ovfRoutine(void);
+[v _timer0_interrupt_ovfRoutine `(v ~T0 @X0 0 ef ]
 "2 interrupts.c
-[; ;interrupts.c: 2: ptr_to_Fun TIMER0OVF_INT;
+[; ;interrupts.c: 2: ptr_to_Fun TIMER0OVF_INT=timer0_interrupt_ovfRoutine;
 [; ;interrupts.c: 2:   {
 [; ;interrupts.c: 2: }
-[v _TIMER0OVF_INT `*F19 ~T0 @X0 1 e ]
+[v _TIMER0OVF_INT `*F49 ~T0 @X0 1 e ]
+[i _TIMER0OVF_INT
+&U _timer0_interrupt_ovfRoutine
+]
 "5
-[; ;interrupts.c: 5:   (*((reg_type8_t)(0x000B)) &=(~(1<<0x04)));
+[; ;interrupts.c: 5: 
 [v _check_my_isr `(v ~T0 @X0 1 ef ]
 "6
 [; ;interrupts.c: 6:   }
@@ -15,22 +21,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "7
 [; ;interrupts.c: 7: }
-[e $ ! != & >> -> *U -> -> 11 `i `*Vuc `i -> 4 `i -> 1 `i -> 0 `i 2  ]
+[e $ ! != & >> -> *U -> -> 11 `i `*Vuc `i -> 4 `i -> 1 `i -> 0 `i 3  ]
 "8
 [; ;interrupts.c: 8: 
 {
 "10
 [; ;interrupts.c: 10: 
 [e ( *U _TIMER0OVF_INT ..  ]
-"11
-[; ;interrupts.c: 11: 
-[e =& *U -> -> 11 `i `*Vuc -> ~ << -> 1 `i -> 4 `i `uc ]
 "12
 [; ;interrupts.c: 12: 
 }
-[e :U 2 ]
+[e :U 3 ]
 "13
-[e :UE 1 ]
+[e :UE 2 ]
 }
 "20
 [v _hi_priority_int `(v ~T0 @X0 1 ef ]
@@ -41,5 +44,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22
 [e ( _check_my_isr ..  ]
 "23
-[e :UE 3 ]
+[e :UE 4 ]
 }

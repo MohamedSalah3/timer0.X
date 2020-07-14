@@ -44,7 +44,7 @@ typedef struct Timer_cfg_s
  uint8_t Timer_Prescaler;
  void (*Timer_Cbk_ptr)(void);
 }Timer_cfg_s;
-# 74 "./timer_config.h"
+# 82 "./timer_config.h"
 extern Timer_cfg_s Timer_Configuration0;
 extern Timer_cfg_s Timer_Configuration2;
 extern Timer_cfg_s Timer_Configuration1;
@@ -57,8 +57,8 @@ extern Timer_cfg_s Timer_Deinit_Configuration2;
 Timer_cfg_s Timer_Configuration0 =
 {
 0,
-0xC2,
-0x20,
+0xC5,
+0xDF,
 0,
 timer0_interrupt_ovfRoutine};
 Timer_cfg_s Timer_Configuration1;

@@ -53,7 +53,7 @@ typedef struct Timer_cfg_s
  uint8_t Timer_Prescaler;
  void (*Timer_Cbk_ptr)(void);
 }Timer_cfg_s;
-# 74 "./timer_config.h"
+# 82 "./timer_config.h"
 extern Timer_cfg_s Timer_Configuration0;
 extern Timer_cfg_s Timer_Configuration2;
 extern Timer_cfg_s Timer_Configuration1;
@@ -72,7 +72,39 @@ ERROR_STATUS Timer_GetStatus(uint8_t Timer_CH_NO, uint8_t* Data);
 # 71 "./timer.h"
 ERROR_STATUS Timer_GetValue(uint8_t Timer_CH_NO, uint16_t* Data);
 # 1 "timer.c" 2
-# 13 "timer.c"
+
+# 1 "./DIO.h" 1
+
+
+
+# 1 "./DIO_Config.h" 1
+# 56 "./DIO_Config.h"
+typedef struct DIO_Cfg_s{
+    uint8_t port;
+    uint8_t dir;
+    uint8_t pin;
+    uint8_t operation_mode;
+
+}DIO_Cfg_s;
+
+
+extern DIO_Cfg_s Dio_configutation_A;
+extern DIO_Cfg_s Dio_configutation_B;
+extern DIO_Cfg_s Dio_configutation_C;
+extern DIO_Cfg_s Dio_configutation_D;
+extern DIO_Cfg_s Dio_configutation_E;
+# 4 "./DIO.h" 2
+# 13 "./DIO.h"
+ERROR_STATUS DIO_init (DIO_Cfg_s *DIO_info);
+# 42 "./DIO.h"
+ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value);
+# 70 "./DIO.h"
+ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data);
+# 95 "./DIO.h"
+ERROR_STATUS DIO_Toggle (uint8_t GPIO, uint8_t pins);
+# 2 "timer.c" 2
+# 14 "timer.c"
+ static uint8_t Prescaler = 0xFF;
 ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg)
 {
 uint8_t ret_error = 0;
@@ -80,12 +112,12 @@ uint8_t ret_error = 0;
 switch (Timer_cfg->Timer_CH_NO)
 {
   case 0:
-    *((reg_type8_t)(0x0081)) &= (Timer_cfg -> Timer_Mode);
+    Prescaler &= (Timer_cfg -> Timer_Mode);
         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
         {
-            case 0x20:
-            *((reg_type8_t)(0x000B)) |=0x20;
+            case 0xA0:
             *((reg_type8_t)(0x000B)) |= 0x80;
+            *((reg_type8_t)(0x000B)) |=0xA0;
             TIMER0OVF_INT = ( Timer_cfg -> Timer_Cbk_ptr);
             break;
             case 0xDF:
@@ -102,7 +134,7 @@ switch (Timer_cfg->Timer_CH_NO)
       case 0:
         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
           {
-            case 0x20:
+            case 0xA0:
 
             break;
             case 0xDF:
@@ -114,7 +146,7 @@ switch (Timer_cfg->Timer_CH_NO)
       case 1:
         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
           {
-            case 0x20:
+            case 0xA0:
 
             break;
             case 0xDF:
@@ -135,7 +167,7 @@ switch (Timer_cfg->Timer_CH_NO)
       case 0:
         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
           {
-            case 0x20:
+            case 0xA0:
 
             break;
             case 0xDF:
@@ -147,7 +179,7 @@ switch (Timer_cfg->Timer_CH_NO)
       case 1:
         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
           {
-            case 0x20:
+            case 0xA0:
 
             break;
             case 0xDF:
@@ -174,37 +206,98 @@ return ret_error;
 
 void timer0_interrupt_ovfRoutine(void)
 {
-
+  DIO_Write (1,0x04|0x08,0);
 
 }
-# 127 "timer.c"
+# 129 "timer.c"
 ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
 {
   uint8_t ret_error = 0;
+  switch (Timer_CH_NO) {
+    case 0:
+
+
+    *((reg_type8_t)(0x0081)) = Prescaler;
+    if (Timer_Count <= 255) {
+    *((reg_type8_t)(0x0001)) = 255- Timer_Count;
+}
+
+
+
+
+    break;
+
+    case 1:
+
+
+    break;
+
+    case 2:
+
+
+    break;
+    default:
+    ret_error += 1 +26;
+    break;
+  }
 
 
   return ret_error;
 }
-# 144 "timer.c"
+# 173 "timer.c"
 ERROR_STATUS Timer_Stop(uint8_t Timer_CH_NO)
 {
   uint8_t ret_error = 0;
-
-
+*((reg_type8_t)(0x0081)) = 0xFF;
   return ret_error;
 }
-# 161 "timer.c"
+# 189 "timer.c"
 ERROR_STATUS Timer_GetStatus(uint8_t Timer_CH_NO, uint8_t* Data)
 {
   uint8_t ret_error = 0;
+  switch (Timer_CH_NO) {
+    case 0:
+*Data = ((*((reg_type8_t)(0x000B)) >> 0x04) & 1);
+    break;
+
+    case 1:
+
+    break;
+
+    case 2:
+
+
+    break;
+    default:
+    ret_error += 1 +26;
+    break;
+  }
+
 
 
   return ret_error;
 }
-# 178 "timer.c"
+# 224 "timer.c"
 ERROR_STATUS Timer_GetValue(uint8_t Timer_CH_NO, uint16_t* Data)
 {
   uint8_t ret_error = 0;
+  switch (Timer_CH_NO) {
+    case 0:
+
+    *Data = *((reg_type8_t)(0x0001));
+    break;
+
+    case 1:
+
+    break;
+
+    case 2:
+
+    break;
+    default:
+    ret_error += 1 +26;
+    break;
+  }
 
   return ret_error;
 }

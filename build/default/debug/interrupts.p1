@@ -6,15 +6,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 2: }
 [v _TIMER0OVF_INT `*F19 ~T0 @X0 1 e ]
 "5
-[; ;interrupts.c: 5:   }
+[; ;interrupts.c: 5:   (*((reg_type8_t)(0x000B)) &=(~(1<<0x04)));
 [v _check_my_isr `(v ~T0 @X0 1 ef ]
 "6
-[; ;interrupts.c: 6: }
+[; ;interrupts.c: 6:   }
 {
 [e :U _check_my_isr ]
 [f ]
 "7
-[; ;interrupts.c: 7: 
+[; ;interrupts.c: 7: }
 [e $ ! != & >> -> *U -> -> 11 `i `*Vuc `i -> 4 `i -> 1 `i -> 0 `i 2  ]
 "8
 [; ;interrupts.c: 8: 
@@ -24,19 +24,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( *U _TIMER0OVF_INT ..  ]
 "11
 [; ;interrupts.c: 11: 
+[e =& *U -> -> 11 `i `*Vuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"12
+[; ;interrupts.c: 12: 
 }
 [e :U 2 ]
-"12
+"13
 [e :UE 1 ]
 }
-"19
-[v _hi_priority_int `(v ~T0 @X0 1 ef ]
 "20
+[v _hi_priority_int `(v ~T0 @X0 1 ef ]
+"21
 {
 [e :U _hi_priority_int ]
 [f ]
-"21
-[e ( _check_my_isr ..  ]
 "22
+[e ( _check_my_isr ..  ]
+"23
 [e :UE 3 ]
 }

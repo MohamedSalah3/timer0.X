@@ -11,44 +11,46 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\mo\AppData\Local\Temp\s80s.o
+$C:\Users\mo\AppData\Local\Temp\s9v0.o
 end_init CODE 0 0 0 3 2
 $dist/default/production\timer0.X.production.o
-cinit CODE 0 7E0 7E0 20 2
-text1 CODE 0 55E 55E BE 2
-text2 CODE 0 6EA 6EA F6 2
-text3 CODE 0 61C 61C CE 2
-text4 CODE 0 48A 48A 60 2
-nvCOMMON COMMON 1 7C 7C 1 1
-maintext CODE 0 4EA 4EA 74 2
-cstackCOMMON COMMON 1 76 76 6 1
-inittext CODE 0 477 477 13 2
+cinit CODE 0 7D5 7D5 2B 2
+text1 CODE 0 4C6 4C6 24 2
+text2 CODE 0 55C 55C B5 2
+text3 CODE 0 6DF 6DF F6 2
+text4 CODE 0 611 611 CE 2
+nvBANK0 BANK0 1 52 52 1 1
+idataCOMMON CODE 0 498 498 2 2
+maintext CODE 0 4EA 4EA 72 2
+cstackCOMMON COMMON 1 70 70 6 1
+inittext CODE 0 4B3 4B3 13 2
 bssBANK0 BANK0 1 20 20 21 1
-idataBANK0 CODE 0 466 466 11 2
+idataBANK0 CODE 0 4A2 4A2 11 2
 dataBANK0 BANK0 1 41 41 11 1
-clrtext CODE 0 45E 45E 8 2
-bssCOMMON COMMON 1 70 70 6 1
+dataCOMMON COMMON 1 7B 7B 2 1
+clrtext CODE 0 49A 49A 8 2
+bssCOMMON COMMON 1 76 76 5 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 52-6F 1
+RAM 53-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 52-6F 1
+BANK0 53-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-45D 2
+CONST 3-497 2
 CONST 800-1FFF 2
-ENTRY 3-45D 2
+ENTRY 3-497 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 3-45D 2
+CODE 3-497 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -57,9 +59,9 @@ SFR3 180-18F 1
 COMMON 7D-7D 1
 CONFIG 2007-2007 2
 EEDATA 2100-21FF 2
-STRCODE 3-45D 2
+STRCODE 3-497 2
 STRCODE 800-1FFF 2
-STRING 3-45D 2
+STRING 3-497 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -75,205 +77,200 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\timer0.X.production.o
-7E0 cinit CODE >277:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E0 cinit CODE >280:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E0 cinit CODE >384:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E1 cinit CODE >385:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E2 cinit CODE >386:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E3 cinit CODE >387:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E4 cinit CODE >388:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E5 cinit CODE >389:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E6 cinit CODE >390:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E7 cinit CODE >391:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E8 cinit CODE >392:C:\Users\mo\AppData\Local\Temp\s80s.s
-7E9 cinit CODE >393:C:\Users\mo\AppData\Local\Temp\s80s.s
-7EE cinit CODE >412:C:\Users\mo\AppData\Local\Temp\s80s.s
-7EF cinit CODE >413:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F0 cinit CODE >414:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F1 cinit CODE >415:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F6 cinit CODE >418:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F7 cinit CODE >419:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F8 cinit CODE >420:C:\Users\mo\AppData\Local\Temp\s80s.s
-7F9 cinit CODE >421:C:\Users\mo\AppData\Local\Temp\s80s.s
-7FA cinit CODE >422:C:\Users\mo\AppData\Local\Temp\s80s.s
-7FB cinit CODE >423:C:\Users\mo\AppData\Local\Temp\s80s.s
-7FC cinit CODE >429:C:\Users\mo\AppData\Local\Temp\s80s.s
-7FC cinit CODE >431:C:\Users\mo\AppData\Local\Temp\s80s.s
-7FD cinit CODE >432:C:\Users\mo\AppData\Local\Temp\s80s.s
-48A text4 CODE >235:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-48B text4 CODE >237:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-48C text4 CODE >238:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-48D text4 CODE >240:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-496 text4 CODE >241:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-497 text4 CODE >243:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4A0 text4 CODE >244:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4A1 text4 CODE >246:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4AA text4 CODE >247:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4AB text4 CODE >249:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4B4 text4 CODE >250:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4B5 text4 CODE >252:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4BE text4 CODE >253:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4BF text4 CODE >255:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4C3 text4 CODE >256:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4C4 text4 CODE >257:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4DD text4 CODE >258:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4E4 text4 CODE >260:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4E8 text4 CODE >263:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-4E9 text4 CODE >264:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-61C text3 CODE >131:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-61D text3 CODE >132:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-61E text3 CODE >135:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-624 text3 CODE >138:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-627 text3 CODE >139:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-628 text3 CODE >141:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-62B text3 CODE >142:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-62C text3 CODE >144:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-62F text3 CODE >145:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-630 text3 CODE >147:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-633 text3 CODE >148:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-634 text3 CODE >150:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-637 text3 CODE >151:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-638 text3 CODE >152:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-651 text3 CODE >153:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-656 text3 CODE >159:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-65C text3 CODE >160:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-65D text3 CODE >162:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-663 text3 CODE >163:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-664 text3 CODE >165:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-66A text3 CODE >166:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-66B text3 CODE >168:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-671 text3 CODE >169:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-672 text3 CODE >171:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-678 text3 CODE >172:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-679 text3 CODE >174:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-67D text3 CODE >175:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-67E text3 CODE >177:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-697 text3 CODE >182:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-69D text3 CODE >183:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-69E text3 CODE >185:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6A4 text3 CODE >186:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6A5 text3 CODE >188:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6AB text3 CODE >189:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6AC text3 CODE >191:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6B2 text3 CODE >192:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6B3 text3 CODE >194:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6B9 text3 CODE >195:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6BA text3 CODE >200:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6D3 text3 CODE >203:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6D7 text3 CODE >204:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6D8 text3 CODE >205:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6E8 text3 CODE >206:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6E9 text3 CODE >207:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6EA text2 CODE >11:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6EB text2 CODE >13:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6EC text2 CODE >15:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6EE text2 CODE >16:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6F4 text2 CODE >20:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6F7 text2 CODE >21:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6F8 text2 CODE >23:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6FB text2 CODE >24:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6FC text2 CODE >26:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-6FF text2 CODE >27:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-700 text2 CODE >29:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-703 text2 CODE >30:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-704 text2 CODE >32:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-707 text2 CODE >33:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-708 text2 CODE >34:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-724 text2 CODE >35:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-728 text2 CODE >37:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-732 text2 CODE >38:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-738 text2 CODE >47:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-73F text2 CODE >48:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-740 text2 CODE >51:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-747 text2 CODE >52:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-748 text2 CODE >55:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-74F text2 CODE >56:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-750 text2 CODE >59:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-757 text2 CODE >60:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-758 text2 CODE >63:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-75F text2 CODE >64:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-760 text2 CODE >66:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-764 text2 CODE >67:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-765 text2 CODE >68:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-780 text2 CODE >74:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-787 text2 CODE >75:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-788 text2 CODE >77:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-78F text2 CODE >78:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-790 text2 CODE >80:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-797 text2 CODE >81:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-798 text2 CODE >83:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-79F text2 CODE >84:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7A0 text2 CODE >86:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7A7 text2 CODE >87:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7A8 text2 CODE >91:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7C3 text2 CODE >94:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7C7 text2 CODE >95:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7C8 text2 CODE >96:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7DA text2 CODE >99:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7DE text2 CODE >101:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-7DF text2 CODE >102:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
-55E text1 CODE >14:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-55F text1 CODE >16:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-560 text1 CODE >18:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-561 text1 CODE >21:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-569 text1 CODE >22:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-56A text1 CODE >24:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-56A text1 CODE >25:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-56B text1 CODE >26:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-56F text1 CODE >27:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-576 text1 CODE >28:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-577 text1 CODE >30:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-57B text1 CODE >31:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-57C text1 CODE >33:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-580 text1 CODE >35:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-594 text1 CODE >50:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-5A7 text1 CODE >62:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-5BA text1 CODE >67:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-5CC text1 CODE >83:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-5DF text1 CODE >95:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-5F2 text1 CODE >100:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-604 text1 CODE >105:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-61A text1 CODE >109:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
-61B text1 CODE >110:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+7D5 cinit CODE >288:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D5 cinit CODE >291:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D5 cinit CODE >406:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D6 cinit CODE >407:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D7 cinit CODE >408:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D8 cinit CODE >409:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7D9 cinit CODE >410:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7DA cinit CODE >411:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7DB cinit CODE >412:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7DC cinit CODE >413:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7DD cinit CODE >414:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7DE cinit CODE >415:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7E3 cinit CODE >419:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7E8 cinit CODE >420:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7E9 cinit CODE >421:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7EE cinit CODE >422:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7EF cinit CODE >441:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F0 cinit CODE >442:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F1 cinit CODE >443:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F2 cinit CODE >444:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F7 cinit CODE >447:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F8 cinit CODE >448:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7F9 cinit CODE >449:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7FA cinit CODE >450:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7FB cinit CODE >451:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7FC cinit CODE >457:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7FC cinit CODE >459:C:\Users\mo\AppData\Local\Temp\s9v0.s
+7FD cinit CODE >460:C:\Users\mo\AppData\Local\Temp\s9v0.s
+611 text4 CODE >131:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+612 text4 CODE >132:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+613 text4 CODE >135:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+619 text4 CODE >138:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+61C text4 CODE >139:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+61D text4 CODE >141:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+620 text4 CODE >142:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+621 text4 CODE >144:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+624 text4 CODE >145:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+625 text4 CODE >147:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+628 text4 CODE >148:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+629 text4 CODE >150:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+62C text4 CODE >151:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+62D text4 CODE >152:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+646 text4 CODE >153:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+64B text4 CODE >159:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+651 text4 CODE >160:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+652 text4 CODE >162:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+658 text4 CODE >163:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+659 text4 CODE >165:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+65F text4 CODE >166:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+660 text4 CODE >168:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+666 text4 CODE >169:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+667 text4 CODE >171:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+66D text4 CODE >172:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+66E text4 CODE >174:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+672 text4 CODE >175:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+673 text4 CODE >177:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+68C text4 CODE >182:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+692 text4 CODE >183:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+693 text4 CODE >185:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+699 text4 CODE >186:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+69A text4 CODE >188:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6A0 text4 CODE >189:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6A1 text4 CODE >191:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6A7 text4 CODE >192:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6A8 text4 CODE >194:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6AE text4 CODE >195:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6AF text4 CODE >200:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6C8 text4 CODE >203:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6CC text4 CODE >204:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6CD text4 CODE >205:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6DD text4 CODE >206:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6DE text4 CODE >207:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6DF text3 CODE >11:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6E0 text3 CODE >13:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6E1 text3 CODE >15:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6E3 text3 CODE >16:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6E9 text3 CODE >20:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6EC text3 CODE >21:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6ED text3 CODE >23:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F0 text3 CODE >24:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F1 text3 CODE >26:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F4 text3 CODE >27:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F5 text3 CODE >29:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F8 text3 CODE >30:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6F9 text3 CODE >32:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6FC text3 CODE >33:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+6FD text3 CODE >34:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+719 text3 CODE >35:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+71D text3 CODE >37:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+727 text3 CODE >38:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+72D text3 CODE >47:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+734 text3 CODE >48:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+735 text3 CODE >51:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+73C text3 CODE >52:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+73D text3 CODE >55:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+744 text3 CODE >56:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+745 text3 CODE >59:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+74C text3 CODE >60:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+74D text3 CODE >63:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+754 text3 CODE >64:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+755 text3 CODE >66:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+759 text3 CODE >67:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+75A text3 CODE >68:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+775 text3 CODE >74:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+77C text3 CODE >75:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+77D text3 CODE >77:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+784 text3 CODE >78:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+785 text3 CODE >80:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+78C text3 CODE >81:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+78D text3 CODE >83:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+794 text3 CODE >84:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+795 text3 CODE >86:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+79C text3 CODE >87:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+79D text3 CODE >91:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7B8 text3 CODE >94:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7BC text3 CODE >95:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7BD text3 CODE >96:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7CF text3 CODE >99:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7D3 text3 CODE >101:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+7D4 text3 CODE >102:C:\Users\mo\MPLABXProjects\timer0.X\DIO.c
+55C text2 CODE >15:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+55D text2 CODE >17:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+55E text2 CODE >19:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+55F text2 CODE >22:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+565 text2 CODE >23:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+566 text2 CODE >25:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+566 text2 CODE >26:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+567 text2 CODE >27:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+56B text2 CODE >29:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+56C text2 CODE >31:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+570 text2 CODE >32:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+571 text2 CODE >34:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+575 text2 CODE >36:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+589 text2 CODE >51:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+59C text2 CODE >63:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+5AF text2 CODE >68:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+5C1 text2 CODE >84:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+5D4 text2 CODE >96:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+5E7 text2 CODE >101:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+5F9 text2 CODE >106:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+60F text2 CODE >110:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+610 text2 CODE >111:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4C6 text1 CODE >129:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4C7 text1 CODE >131:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4C8 text1 CODE >132:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4C9 text1 CODE >136:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4CF text1 CODE >142:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4D0 text1 CODE >154:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4D4 text1 CODE >155:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4D5 text1 CODE >156:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4E8 text1 CODE >159:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
+4E9 text1 CODE >160:C:\Users\mo\MPLABXProjects\timer0.X\timer.c
 4EA maintext CODE >13:C:\Users\mo\MPLABXProjects\timer0.X\main.c
 4EA maintext CODE >15:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-4F3 maintext CODE >16:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-4FC maintext CODE >17:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-505 maintext CODE >18:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-50E maintext CODE >20:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-50E maintext CODE >23:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-51F maintext CODE >24:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-530 maintext CODE >25:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-53A maintext CODE >26:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-54B maintext CODE >27:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-54C maintext CODE >28:C:\Users\mo\MPLABXProjects\timer0.X\main.c
-45E clrtext CODE >399:C:\Users\mo\AppData\Local\Temp\s80s.s
-45E clrtext CODE >400:C:\Users\mo\AppData\Local\Temp\s80s.s
-45F clrtext CODE >401:C:\Users\mo\AppData\Local\Temp\s80s.s
-45F clrtext CODE >402:C:\Users\mo\AppData\Local\Temp\s80s.s
-460 clrtext CODE >403:C:\Users\mo\AppData\Local\Temp\s80s.s
-461 clrtext CODE >404:C:\Users\mo\AppData\Local\Temp\s80s.s
-462 clrtext CODE >405:C:\Users\mo\AppData\Local\Temp\s80s.s
-463 clrtext CODE >406:C:\Users\mo\AppData\Local\Temp\s80s.s
-464 clrtext CODE >407:C:\Users\mo\AppData\Local\Temp\s80s.s
-465 clrtext CODE >408:C:\Users\mo\AppData\Local\Temp\s80s.s
-477 inittext CODE >358:C:\Users\mo\AppData\Local\Temp\s80s.s
-477 inittext CODE >359:C:\Users\mo\AppData\Local\Temp\s80s.s
-478 inittext CODE >360:C:\Users\mo\AppData\Local\Temp\s80s.s
-479 inittext CODE >361:C:\Users\mo\AppData\Local\Temp\s80s.s
-47A inittext CODE >362:C:\Users\mo\AppData\Local\Temp\s80s.s
-47B inittext CODE >369:C:\Users\mo\AppData\Local\Temp\s80s.s
-47B inittext CODE >370:C:\Users\mo\AppData\Local\Temp\s80s.s
-480 inittext CODE >371:C:\Users\mo\AppData\Local\Temp\s80s.s
-481 inittext CODE >372:C:\Users\mo\AppData\Local\Temp\s80s.s
-482 inittext CODE >373:C:\Users\mo\AppData\Local\Temp\s80s.s
-483 inittext CODE >374:C:\Users\mo\AppData\Local\Temp\s80s.s
-484 inittext CODE >375:C:\Users\mo\AppData\Local\Temp\s80s.s
-485 inittext CODE >376:C:\Users\mo\AppData\Local\Temp\s80s.s
-486 inittext CODE >377:C:\Users\mo\AppData\Local\Temp\s80s.s
-487 inittext CODE >378:C:\Users\mo\AppData\Local\Temp\s80s.s
-488 inittext CODE >379:C:\Users\mo\AppData\Local\Temp\s80s.s
-489 inittext CODE >380:C:\Users\mo\AppData\Local\Temp\s80s.s
+4F5 maintext CODE >16:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+500 maintext CODE >17:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+50B maintext CODE >18:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+516 maintext CODE >19:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+516 maintext CODE >33:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+525 maintext CODE >34:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+525 maintext CODE >35:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+529 maintext CODE >36:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+53C maintext CODE >37:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+540 maintext CODE >38:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+540 maintext CODE >39:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+544 maintext CODE >40:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+554 maintext CODE >41:C:\Users\mo\MPLABXProjects\timer0.X\main.c
+49A clrtext CODE >428:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49A clrtext CODE >429:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49B clrtext CODE >430:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49B clrtext CODE >431:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49C clrtext CODE >432:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49D clrtext CODE >433:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49E clrtext CODE >434:C:\Users\mo\AppData\Local\Temp\s9v0.s
+49F clrtext CODE >435:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4A0 clrtext CODE >436:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4A1 clrtext CODE >437:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B3 inittext CODE >380:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B3 inittext CODE >381:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B4 inittext CODE >382:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B5 inittext CODE >383:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B6 inittext CODE >384:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B7 inittext CODE >391:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4B7 inittext CODE >392:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4BC inittext CODE >393:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4BD inittext CODE >394:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4BE inittext CODE >395:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4BF inittext CODE >396:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C0 inittext CODE >397:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C1 inittext CODE >398:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C2 inittext CODE >399:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C3 inittext CODE >400:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C4 inittext CODE >401:C:\Users\mo\AppData\Local\Temp\s9v0.s
+4C5 inittext CODE >402:C:\Users\mo\AppData\Local\Temp\s9v0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -288,51 +285,55 @@ $dist/default/production\timer0.X.production.o
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\timer0.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
-DIO_Write@ret_error 7A 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+DIO_Write@ret_error 74 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Hspace_0 800 0 ABS 0 - -
 __Hspace_1 7D 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-DIO_init@DIO_info 79 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+DIO_init@DIO_info 73 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-DIO_Write@first_powerup 70 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
+DIO_Write@first_powerup 78 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\mo\AppData\Local\Temp\s80s.o
-_data 75 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\mo\AppData\Local\Temp\s9v0.o
 _main 9D4 0 CODE 0 maintext dist/default/production\timer0.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\timer0.X.production.o
-start 0 0 CODE 0 init C:\Users\mo\AppData\Local\Temp\s80s.o
+start 0 0 CODE 0 init C:\Users\mo\AppData\Local\Temp\s9v0.o
 __size_of_main 0 0 ABS 0 - dist/default/production\timer0.X.production.o
+Timer_Start@Timer_CH_NO 74 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+Timer_Start@Timer_Count 70 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 _Timer_Configuration0 41 0 BANK0 1 dataBANK0 dist/default/production\timer0.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-__LnvCOMMON 0 0 ABS 0 nvCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s80s.o
+__HdataCOMMON 0 0 ABS 0 dataCOMMON -
+intlevel0 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\mo\AppData\Local\Temp\s9v0.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\timer0.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+__pidataCOMMON 930 0 CODE 0 idataCOMMON dist/default/production\timer0.X.production.o
 _timer0_interrupt_ovfRoutine 0 0 ABS 0 - dist/default/production\timer0.X.production.o
+__LdataCOMMON 0 0 ABS 0 dataCOMMON -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\mo\AppData\Local\Temp\s80s.o
-___stacklo 0 0 ABS 0 - C:\Users\mo\AppData\Local\Temp\s80s.o
-__HnvCOMMON 0 0 ABS 0 nvCOMMON -
-start_initialization FC0 0 CODE 0 cinit dist/default/production\timer0.X.production.o
-clear_ram0 8BC 0 CODE 0 clrtext dist/default/production\timer0.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\mo\AppData\Local\Temp\s80s.o
+__LnvBANK0 0 0 ABS 0 nvBANK0 -
+___stackhi 0 0 ABS 0 - C:\Users\mo\AppData\Local\Temp\s9v0.o
+___stacklo 0 0 ABS 0 - C:\Users\mo\AppData\Local\Temp\s9v0.o
+__LidataCOMMON 0 0 ABS 0 idataCOMMON -
+__end_of_Timer_Start 9D4 0 CODE 0 text1 dist/default/production\timer0.X.production.o
+start_initialization FAA 0 CODE 0 cinit dist/default/production\timer0.X.production.o
+clear_ram0 934 0 CODE 0 clrtext dist/default/production\timer0.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\mo\AppData\Local\Temp\s9v0.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
-_TIMER0OVF_INT 73 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -340,10 +341,10 @@ __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FC0 0 CODE 0 cinit -
+__Lcinit FAA 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
 __Linittext 0 0 ABS 0 inittext -
-DIO_Write@value 77 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+DIO_Write@value 71 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 0 0 CODE 0 init -
@@ -360,79 +361,78 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
+__pnvBANK0 52 0 BANK0 1 nvBANK0 dist/default/production\timer0.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
 __S1 7D 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_ret 7C 0 COMMON 1 nvCOMMON dist/default/production\timer0.X.production.o
-__pnvCOMMON 7C 0 COMMON 1 nvCOMMON dist/default/production\timer0.X.production.o
-__size_of_DIO_Read 0 0 ABS 0 - dist/default/production\timer0.X.production.o
+_ret 52 0 BANK0 1 nvBANK0 dist/default/production\timer0.X.production.o
 __size_of_DIO_init 0 0 ABS 0 - dist/default/production\timer0.X.production.o
-_Timer_Init ABC 0 CODE 0 text1 dist/default/production\timer0.X.production.o
+__HidataCOMMON 0 0 ABS 0 idataCOMMON -
+_Timer_Init AB8 0 CODE 0 text2 dist/default/production\timer0.X.production.o
+__HnvBANK0 0 0 ABS 0 nvBANK0 -
 _Dio_configutation_A 46 0 BANK0 1 dataBANK0 dist/default/production\timer0.X.production.o
 _Dio_configutation_B 4E 0 BANK0 1 dataBANK0 dist/default/production\timer0.X.production.o
 _Dio_configutation_C 4A 0 BANK0 1 dataBANK0 dist/default/production\timer0.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\mo\AppData\Local\Temp\s80s.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\mo\AppData\Local\Temp\s9v0.o
 __pdataBANK0 41 0 BANK0 1 dataBANK0 dist/default/production\timer0.X.production.o
+__size_of_Timer_Start 0 0 ABS 0 - dist/default/production\timer0.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__end_of_DIO_Write DD4 0 CODE 0 text3 dist/default/production\timer0.X.production.o
+__end_of_DIO_Write DBE 0 CODE 0 text4 dist/default/production\timer0.X.production.o
 __size_of_DIO_Write 0 0 ABS 0 - dist/default/production\timer0.X.production.o
 __pmaintext 9D4 0 CODE 0 maintext dist/default/production\timer0.X.production.o
-_DIO_Read 914 0 CODE 0 text4 dist/default/production\timer0.X.production.o
-_DIO_init DD4 0 CODE 0 text2 dist/default/production\timer0.X.production.o
-DIO_init@ret_error 78 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+_DIO_init DBE 0 CODE 0 text3 dist/default/production\timer0.X.production.o
+DIO_init@ret_error 72 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Hinittext 0 0 ABS 0 inittext -
-DIO_Read@ret_error 7B 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-__end_of_DIO_Read 9D4 0 CODE 0 text4 dist/default/production\timer0.X.production.o
-__end_of_DIO_init FC0 0 CODE 0 text2 dist/default/production\timer0.X.production.o
-_DIO_Write C38 0 CODE 0 text3 dist/default/production\timer0.X.production.o
-__end_of_Timer_Init C38 0 CODE 0 text1 dist/default/production\timer0.X.production.o
+__end_of_DIO_init FAA 0 CODE 0 text3 dist/default/production\timer0.X.production.o
+_DIO_Write C22 0 CODE 0 text4 dist/default/production\timer0.X.production.o
+__end_of_Timer_Init C22 0 CODE 0 text2 dist/default/production\timer0.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
-init_fetch0 8EE 0 CODE 0 inittext dist/default/production\timer0.X.production.o
+__pbssCOMMON 76 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
+init_fetch0 966 0 CODE 0 inittext dist/default/production\timer0.X.production.o
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production\timer0.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
-DIO_Read@GPIO 7A 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-DIO_Read@data 77 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-DIO_Read@pins 76 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 ABC 0 CODE 0 text1 dist/default/production\timer0.X.production.o
-__ptext2 DD4 0 CODE 0 text2 dist/default/production\timer0.X.production.o
-__ptext3 C38 0 CODE 0 text3 dist/default/production\timer0.X.production.o
-__ptext4 914 0 CODE 0 text4 dist/default/production\timer0.X.production.o
+_Prescaler 7C 0 COMMON 1 dataCOMMON dist/default/production\timer0.X.production.o
+__ptext1 98C 0 CODE 0 text1 dist/default/production\timer0.X.production.o
+__ptext2 AB8 0 CODE 0 text2 dist/default/production\timer0.X.production.o
+__ptext3 DBE 0 CODE 0 text3 dist/default/production\timer0.X.production.o
+__ptext4 C22 0 CODE 0 text4 dist/default/production\timer0.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-_is_init 72 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
+_is_init 7A 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
+Timer_Start@ret_error 75 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production\timer0.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 8CC 0 CODE 0 idataBANK0 dist/default/production\timer0.X.production.o
+__pidataBANK0 944 0 CODE 0 idataBANK0 dist/default/production\timer0.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-Timer_Init@Timer_cfg 79 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-__pcstackCOMMON 76 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-Timer_Init@ret_error 78 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+Timer_Init@Timer_cfg 73 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+Timer_Init@ret_error 72 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-init_ram0 8F6 0 CODE 0 inittext dist/default/production\timer0.X.production.o
-DIO_init@first_powerup_init 71 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
-__end_of_main ABC 0 CODE 0 maintext dist/default/production\timer0.X.production.o
+init_ram0 96E 0 CODE 0 inittext dist/default/production\timer0.X.production.o
+DIO_init@first_powerup_init 79 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
+_Timer_Start 98C 0 CODE 0 text1 dist/default/production\timer0.X.production.o
+__end_of_main AB8 0 CODE 0 maintext dist/default/production\timer0.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_data2 74 0 COMMON 1 bssCOMMON dist/default/production\timer0.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
-__initialization FC0 0 CODE 0 cinit dist/default/production\timer0.X.production.o
+__initialization FAA 0 CODE 0 cinit dist/default/production\timer0.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\timer0.X.production.o
-DIO_Write@GPIO 7B 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
-DIO_Write@pins 76 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+__pdataCOMMON 7B 0 COMMON 1 dataCOMMON dist/default/production\timer0.X.production.o
+DIO_Write@GPIO 75 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
+DIO_Write@pins 70 0 COMMON 1 cstackCOMMON dist/default/production\timer0.X.production.o
 __size_of_Timer_Init 0 0 ABS 0 - dist/default/production\timer0.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -459,18 +459,19 @@ __size_of_Timer_Init 0 0 ABS 0 - dist/default/production\timer0.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7E0 FC0 20 2
-text1 0 55E ABC BE 2
-text2 0 6EA DD4 F6 2
-text3 0 61C C38 CE 2
-text4 0 48A 914 60 2
-maintext 0 4EA 9D4 74 2
-inittext 0 477 8EE 13 2
+cinit 0 7D5 FAA 2B 2
+text1 0 4C6 98C 24 2
+text2 0 55C AB8 B5 2
+text3 0 6DF DBE F6 2
+text4 0 611 C22 CE 2
+idataCOMMON 0 498 930 2 2
+maintext 0 4EA 9D4 72 2
+cstackCOMMON 1 70 70 D 1
+inittext 0 4B3 966 13 2
 reset_vec 0 0 0 3 2
-bssBANK0 1 20 20 32 1
-idataBANK0 0 466 8CC 11 2
-clrtext 0 45E 8BC 8 2
-bssCOMMON 1 70 70 D 1
+bssBANK0 1 20 20 33 1
+idataBANK0 0 4A2 944 11 2
+clrtext 0 49A 934 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

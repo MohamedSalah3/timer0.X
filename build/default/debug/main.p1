@@ -8,8 +8,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 ./timer.h
 [; ;./timer.h: 24: ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg);
 [v _Timer_Init `(uc ~T0 @X0 0 ef1`*S2 ]
-"74 ./timer_config.h
-[; ;./timer_config.h: 74: extern Timer_cfg_s Timer_Configuration0;
+"82 ./timer_config.h
+[; ;./timer_config.h: 82: extern Timer_cfg_s Timer_Configuration0;
 [v _Timer_Configuration0 `S2 ~T0 @X0 0 e ]
 "56 ./DIO_Config.h
 [; ;./DIO_Config.h: 56: typedef struct DIO_Cfg_s{
@@ -27,12 +27,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;./DIO_Config.h: 65: extern DIO_Cfg_s Dio_configutation_A;
 [v _Dio_configutation_A `S1 ~T0 @X0 0 e ]
-"70 ./DIO.h
-[; ;./DIO.h: 70: ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data);
-[v _DIO_Read `(uc ~T0 @X0 0 ef3`uc`uc`*uc ]
-"42
+"36 ./timer.h
+[; ;./timer.h: 36: ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count);
+[v _Timer_Start `(uc ~T0 @X0 0 ef2`uc`ui ]
+"42 ./DIO.h
 [; ;./DIO.h: 42: ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value);
 [v _DIO_Write `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
+"95
+[; ;./DIO.h: 95: ERROR_STATUS DIO_Toggle (uint8_t GPIO, uint8_t pins);
+[v _DIO_Toggle `(uc ~T0 @X0 0 ef2`uc`uc ]
+"70
+[; ;./DIO.h: 70: ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data);
+[v _DIO_Read `(uc ~T0 @X0 0 ef3`uc`uc`*uc ]
 "12 main.c
 [; ;main.c: 12: uint8_t ret,data=0,data2=0;
 [v _ret `uc ~T0 @X0 1 e ]
@@ -71,39 +77,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21
 [; ;main.c: 21:     {
 {
+"22
+[; ;main.c: 22:       ret=Timer_Start(0,250);
+[e = _ret ( _Timer_Start (2 , -> -> 0 `i `uc -> -> 250 `i `ui ]
 "23
-[; ;main.c: 23:     ret=DIO_Read (2,0x10, &data);
-[e = _ret ( _DIO_Read (3 , , -> -> 2 `i `uc -> -> 16 `i `uc &U _data ]
-"24
-[; ;main.c: 24:     ret=DIO_Read (0,0x20, &data2);
-[e = _ret ( _DIO_Read (3 , , -> -> 0 `i `uc -> -> 32 `i `uc &U _data2 ]
-"25
-[; ;main.c: 25:     if ((data == 1) &&(data2 == 1)) {
-[e $ ! && == -> _data `i -> 1 `i == -> _data2 `i -> 1 `i 7  ]
-{
-"26
-[; ;main.c: 26:     ret = DIO_Write (1,0x04|0x08,0xFF);
-[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 255 `i `uc ]
-"27
-[; ;main.c: 27:     }else{
-}
-[e $U 8  ]
-[e :U 7 ]
-{
-"28
-[; ;main.c: 28:       ret = DIO_Write (1,0x04|0x08,0);
-[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 0 `i `uc ]
-"29
-[; ;main.c: 29:     }
-}
+[; ;main.c: 23: while ((*((reg_type8_t)(0x000B)) & 0x04)==0){DIO_Write(1,0x20|0x10,0xFF);}
+[e $U 7  ]
 [e :U 8 ]
+{
+[e ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 32 `i -> 16 `i `uc -> -> 255 `i `uc ]
+}
+[e :U 7 ]
+[e $ == & -> *U -> -> 11 `i `*Vuc `i -> 4 `i -> 0 `i 8  ]
+[e :U 9 ]
+"24
+[; ;main.c: 24: ret=DIO_Toggle(1,0x20|0x10);
+[e = _ret ( _DIO_Toggle (2 , -> -> 1 `i `uc -> | -> 32 `i -> 16 `i `uc ]
+"28
+[; ;main.c: 28:     ret=DIO_Read (2,0x10, &data);
+[e = _ret ( _DIO_Read (3 , , -> -> 2 `i `uc -> -> 16 `i `uc &U _data ]
+"29
+[; ;main.c: 29:     ret=DIO_Read (0,0x20, &data2);
+[e = _ret ( _DIO_Read (3 , , -> -> 0 `i `uc -> -> 32 `i `uc &U _data2 ]
+"30
+[; ;main.c: 30:     if ((data == 1) &&(data2 == 1)) {
+[e $ ! && == -> _data `i -> 1 `i == -> _data2 `i -> 1 `i 10  ]
+{
 "31
-[; ;main.c: 31:     }
+[; ;main.c: 31:     ret = DIO_Write (1,0x04|0x08,0xFF);
+[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 255 `i `uc ]
+"32
+[; ;main.c: 32:     }else{
+}
+[e $U 11  ]
+[e :U 10 ]
+{
+"33
+[; ;main.c: 33:       ret = DIO_Write (1,0x04|0x08,0);
+[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 0 `i `uc ]
+"34
+[; ;main.c: 34:     }
+}
+[e :U 11 ]
+"36
+[; ;main.c: 36:     }
 }
 [e :U 4 ]
 [e $U 5  ]
 [e :U 6 ]
-"33
-[; ;main.c: 33: }
+"38
+[; ;main.c: 38: }
 [e :UE 3 ]
 }

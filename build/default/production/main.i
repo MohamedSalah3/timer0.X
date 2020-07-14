@@ -64,7 +64,10 @@ ERROR_STATUS DIO_Toggle (uint8_t GPIO, uint8_t pins);
 # 1 "./timer.h" 1
 # 11 "./timer.h"
 # 1 "./interrupts.h" 1
-# 12 "./interrupts.h"
+# 10 "./interrupts.h"
+# 1 "./timer.h" 1
+# 10 "./interrupts.h" 2
+
 typedef void (*ptr_to_Fun)(void);
 extern ptr_to_Fun TIMER0OVF_INT;
 # 11 "./timer.h" 2
@@ -84,7 +87,7 @@ typedef struct Timer_cfg_s
  uint8_t Timer_Prescaler;
  void (*Timer_Cbk_ptr)(void);
 }Timer_cfg_s;
-# 74 "./timer_config.h"
+# 82 "./timer_config.h"
 extern Timer_cfg_s Timer_Configuration0;
 extern Timer_cfg_s Timer_Configuration2;
 extern Timer_cfg_s Timer_Configuration1;
@@ -96,11 +99,12 @@ extern Timer_cfg_s Timer_Deinit_Configuration2;
 ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg);
 # 36 "./timer.h"
 ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count);
-# 47 "./timer.h"
+void timer0_interrupt_ovfRoutine(void);
+# 48 "./timer.h"
 ERROR_STATUS Timer_Stop(uint8_t Timer_CH_NO);
-# 59 "./timer.h"
+# 60 "./timer.h"
 ERROR_STATUS Timer_GetStatus(uint8_t Timer_CH_NO, uint8_t* Data);
-# 71 "./timer.h"
+# 72 "./timer.h"
 ERROR_STATUS Timer_GetValue(uint8_t Timer_CH_NO, uint16_t* Data);
 # 11 "main.c" 2
 
@@ -111,18 +115,18 @@ void main(void)
    ret= DIO_init (&Dio_configutation_B);
    ret= DIO_init (&Dio_configutation_C);
    ret= DIO_init (&Dio_configutation_A);
-
    while (1)
     {
-
-    ret=DIO_Read (2,0x10, &data);
-    ret=DIO_Read (0,0x20, &data2);
-    if ((data == 1) &&(data2 == 1)) {
-    ret = DIO_Write (1,0x04|0x08,0xFF);
-    }else{
-      ret = DIO_Write (1,0x04|0x08,0);
-    }
-
+# 33 "main.c"
+    ret=Timer_Start(0,1);
+    while ((*((reg_type8_t)(0x000B)) & 0x04)==0)
+    {;}
+    ret=DIO_Write(1,0x20|0x10,0xFF);
+    *((reg_type8_t)(0x000B)) &= (~0x04);
+    while ((*((reg_type8_t)(0x000B)) & 0x04)==0)
+  {;}
+      ret=DIO_Write(1,0x20|0x10,0);
+      *((reg_type8_t)(0x000B)) &= (~0x04);
     }
 
 }
