@@ -29,6 +29,8 @@ switch (Timer_cfg->Timer_CH_NO)
             break;
             case TIMER0_POOLING_MODE:
             INTCON &= TIMER0_POOLING_MODE;
+            INTCON &= TIMER0_INTERRUPT_DISABLE;
+
             break;
             default:
             ret_error += E_NOK+INVALID_INT_POL_MODE;
@@ -136,8 +138,7 @@ ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
     OPTION_REG = Prescaler;
     if (Timer_Count <= 255) {
     TIMER0 =Timer_Count;
-  }else if()
-  {
+}
 /*if bigger than 255 calculate the required ovfs to accomplish that */
 /*if pooling make a counter to count the number of overflows*/
 /*if interrupt use the same counter used when pooling to count the number of overflows*/

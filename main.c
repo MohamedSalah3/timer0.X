@@ -19,6 +19,7 @@ void main(void)
 
    while (1)
     {
+      ret=Timer_Start(TIMER_CH0,100);
 
     ret=DIO_Read (GPIOC,PIN4, &data);
     ret=DIO_Read (GPIOA,PIN5, &data2);

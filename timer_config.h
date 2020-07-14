@@ -76,7 +76,7 @@ typedef struct Timer_cfg_s
 #define TIMER0_INTERRUPT_MODE 		0xA0
 #define GLOBAL_INT_EN							0x80
 #define TIMER0_POOLING_MODE 			0xDF
-
+#define TIMER0_INTERRUPT_DISABLE  0xDf
 /********************************************************/
 /********Extern Configuration Structure******************/
 /********************************************************/
