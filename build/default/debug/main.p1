@@ -1,0 +1,109 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+[v F50 `(v ~T0 @X0 0 tf ]
+"20 ./timer_config.h
+[; ;./timer_config.h: 20: {
+[s S2 `uc 1 `uc 1 `uc 1 `uc 1 `*F50 1 ]
+[n S2 Timer_cfg_s Timer_CH_NO Timer_Mode Timer_Polling_Or_Interrupt Timer_Prescaler Timer_Cbk_ptr ]
+"24 ./timer.h
+[; ;./timer.h: 24: ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg);
+[v _Timer_Init `(uc ~T0 @X0 0 ef1`*S2 ]
+"74 ./timer_config.h
+[; ;./timer_config.h: 74: extern Timer_cfg_s Timer_Configuration0;
+[v _Timer_Configuration0 `S2 ~T0 @X0 0 e ]
+"56 ./DIO_Config.h
+[; ;./DIO_Config.h: 56: typedef struct DIO_Cfg_s{
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 DIO_Cfg_s port dir pin operation_mode ]
+"13 ./DIO.h
+[; ;./DIO.h: 13: ERROR_STATUS DIO_init (DIO_Cfg_s *DIO_info);
+[v _DIO_init `(uc ~T0 @X0 0 ef1`*S1 ]
+"66 ./DIO_Config.h
+[; ;./DIO_Config.h: 66: extern DIO_Cfg_s Dio_configutation_B;
+[v _Dio_configutation_B `S1 ~T0 @X0 0 e ]
+"67
+[; ;./DIO_Config.h: 67: extern DIO_Cfg_s Dio_configutation_C;
+[v _Dio_configutation_C `S1 ~T0 @X0 0 e ]
+"65
+[; ;./DIO_Config.h: 65: extern DIO_Cfg_s Dio_configutation_A;
+[v _Dio_configutation_A `S1 ~T0 @X0 0 e ]
+"70 ./DIO.h
+[; ;./DIO.h: 70: ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data);
+[v _DIO_Read `(uc ~T0 @X0 0 ef3`uc`uc`*uc ]
+"42
+[; ;./DIO.h: 42: ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value);
+[v _DIO_Write `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
+"12 main.c
+[; ;main.c: 12: uint8_t ret,data=0,data2=0;
+[v _ret `uc ~T0 @X0 1 e ]
+[v _data `uc ~T0 @X0 1 e ]
+[i _data
+-> -> 0 `i `uc
+]
+[v _data2 `uc ~T0 @X0 1 e ]
+[i _data2
+-> -> 0 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"13
+[; ;main.c: 13: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"14
+[; ;main.c: 14: {
+{
+[e :U _main ]
+[f ]
+"15
+[; ;main.c: 15:     ret=Timer_Init(&Timer_Configuration0);
+[e = _ret ( _Timer_Init (1 &U _Timer_Configuration0 ]
+"16
+[; ;main.c: 16:    ret= DIO_init (&Dio_configutation_B);
+[e = _ret ( _DIO_init (1 &U _Dio_configutation_B ]
+"17
+[; ;main.c: 17:    ret= DIO_init (&Dio_configutation_C);
+[e = _ret ( _DIO_init (1 &U _Dio_configutation_C ]
+"18
+[; ;main.c: 18:    ret= DIO_init (&Dio_configutation_A);
+[e = _ret ( _DIO_init (1 &U _Dio_configutation_A ]
+"20
+[; ;main.c: 20:    while (1)
+[e :U 5 ]
+"21
+[; ;main.c: 21:     {
+{
+"23
+[; ;main.c: 23:     ret=DIO_Read (2,0x10, &data);
+[e = _ret ( _DIO_Read (3 , , -> -> 2 `i `uc -> -> 16 `i `uc &U _data ]
+"24
+[; ;main.c: 24:     ret=DIO_Read (0,0x20, &data2);
+[e = _ret ( _DIO_Read (3 , , -> -> 0 `i `uc -> -> 32 `i `uc &U _data2 ]
+"25
+[; ;main.c: 25:     if ((data == 1) &&(data2 == 1)) {
+[e $ ! && == -> _data `i -> 1 `i == -> _data2 `i -> 1 `i 7  ]
+{
+"26
+[; ;main.c: 26:     ret = DIO_Write (1,0x04|0x08,0xFF);
+[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 255 `i `uc ]
+"27
+[; ;main.c: 27:     }else{
+}
+[e $U 8  ]
+[e :U 7 ]
+{
+"28
+[; ;main.c: 28:       ret = DIO_Write (1,0x04|0x08,0);
+[e = _ret ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 0 `i `uc ]
+"29
+[; ;main.c: 29:     }
+}
+[e :U 8 ]
+"31
+[; ;main.c: 31:     }
+}
+[e :U 4 ]
+[e $U 5  ]
+[e :U 6 ]
+"33
+[; ;main.c: 33: }
+[e :UE 3 ]
+}

@@ -1,0 +1,418 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F26 `(v ~T0 @X0 0 tf ]
+"20 ./timer_config.h
+[; ;./timer_config.h: 20: {
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 `*F26 1 ]
+[n S1 Timer_cfg_s Timer_CH_NO Timer_Mode Timer_Polling_Or_Interrupt Timer_Prescaler Timer_Cbk_ptr ]
+[v F17 `(v ~T0 @X0 0 tf ]
+"13 ./interrupts.h
+[; ;./interrupts.h: 13: extern ptr_to_Fun TIMER0OVF_INT;
+[v _TIMER0OVF_INT `*F17 ~T0 @X0 0 e ]
+"42 ./DIO.h
+[; ;./DIO.h: 42: ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value);
+[v _DIO_Write `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
+"14 timer.c
+[; ;timer.c: 14: ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg)
+[v _Timer_Init `(uc ~T0 @X0 1 ef1`*S1 ]
+"15
+[; ;timer.c: 15: {
+{
+[e :U _Timer_Init ]
+"14
+[; ;timer.c: 14: ERROR_STATUS Timer_Init(Timer_cfg_s* Timer_cfg)
+[v _Timer_cfg `*S1 ~T0 @X0 1 r1 ]
+"15
+[; ;timer.c: 15: {
+[f ]
+"16
+[; ;timer.c: 16: uint8_t ret_error = 0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"18
+[; ;timer.c: 18: switch (Timer_cfg->Timer_CH_NO)
+[e $U 5  ]
+"19
+[; ;timer.c: 19: {
+{
+"20
+[; ;timer.c: 20:   case 0:
+[e :U 6 ]
+"21
+[; ;timer.c: 21:     *((reg_type8_t)(0x0081)) = (Timer_cfg -> Timer_Mode);
+[e = *U -> -> 129 `i `*Vuc . *U _Timer_cfg 1 ]
+"22
+[; ;timer.c: 22:         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
+[e $U 8  ]
+"23
+[; ;timer.c: 23:         {
+{
+"24
+[; ;timer.c: 24:             case 0xA0:
+[e :U 9 ]
+"25
+[; ;timer.c: 25:             *((reg_type8_t)(0x000B)) |= 0x80;
+[e =| *U -> -> 11 `i `*Vuc -> -> 128 `i `uc ]
+"26
+[; ;timer.c: 26:             *((reg_type8_t)(0x000B)) |=0xA0;
+[e =| *U -> -> 11 `i `*Vuc -> -> 160 `i `uc ]
+"27
+[; ;timer.c: 27:             TIMER0OVF_INT = ( Timer_cfg -> Timer_Cbk_ptr);
+[e = _TIMER0OVF_INT . *U _Timer_cfg 4 ]
+"28
+[; ;timer.c: 28:             break;
+[e $U 7  ]
+"29
+[; ;timer.c: 29:             case 0xDF:
+[e :U 10 ]
+"30
+[; ;timer.c: 30:             *((reg_type8_t)(0x000B)) &= 0xDF;
+[e =& *U -> -> 11 `i `*Vuc -> -> 223 `i `uc ]
+"31
+[; ;timer.c: 31:             break;
+[e $U 7  ]
+"32
+[; ;timer.c: 32:             default:
+[e :U 11 ]
+"33
+[; ;timer.c: 33:             ret_error += 1 +24;
+[e =+ _ret_error -> + -> 1 `i -> 24 `i `uc ]
+"35
+[; ;timer.c: 35:         }
+}
+[e $U 7  ]
+[e :U 8 ]
+[e [\ -> . *U _Timer_cfg 2 `i , $ -> 160 `i 9
+ , $ -> 223 `i 10
+ 11 ]
+[e :U 7 ]
+"36
+[; ;timer.c: 36:   break;
+[e $U 4  ]
+"37
+[; ;timer.c: 37:   case 1:
+[e :U 12 ]
+"38
+[; ;timer.c: 38:     switch (Timer_cfg->Timer_Mode)
+[e $U 14  ]
+"39
+[; ;timer.c: 39:     {
+{
+"40
+[; ;timer.c: 40:       case 0:
+[e :U 15 ]
+"41
+[; ;timer.c: 41:         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
+[e $U 17  ]
+"42
+[; ;timer.c: 42:           {
+{
+"43
+[; ;timer.c: 43:             case 0xA0:
+[e :U 18 ]
+"45
+[; ;timer.c: 45:             break;
+[e $U 16  ]
+"46
+[; ;timer.c: 46:             case 0xDF:
+[e :U 19 ]
+"48
+[; ;timer.c: 48:             break;
+[e $U 16  ]
+"50
+[; ;timer.c: 50:           }
+}
+[e $U 16  ]
+[e :U 17 ]
+[e [\ -> . *U _Timer_cfg 2 `i , $ -> 160 `i 18
+ , $ -> 223 `i 19
+ 16 ]
+[e :U 16 ]
+"51
+[; ;timer.c: 51:       break;
+[e $U 13  ]
+"52
+[; ;timer.c: 52:       case 1:
+[e :U 20 ]
+"53
+[; ;timer.c: 53:         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
+[e $U 22  ]
+"54
+[; ;timer.c: 54:           {
+{
+"55
+[; ;timer.c: 55:             case 0xA0:
+[e :U 23 ]
+"57
+[; ;timer.c: 57:             break;
+[e $U 21  ]
+"58
+[; ;timer.c: 58:             case 0xDF:
+[e :U 24 ]
+"60
+[; ;timer.c: 60:             break;
+[e $U 21  ]
+"62
+[; ;timer.c: 62:           }
+}
+[e $U 21  ]
+[e :U 22 ]
+[e [\ -> . *U _Timer_cfg 2 `i , $ -> 160 `i 23
+ , $ -> 223 `i 24
+ 21 ]
+[e :U 21 ]
+"63
+[; ;timer.c: 63:       break;
+[e $U 13  ]
+"64
+[; ;timer.c: 64:       default:
+[e :U 25 ]
+"66
+[; ;timer.c: 66:       break;
+[e $U 13  ]
+"67
+[; ;timer.c: 67:     }
+}
+[e $U 13  ]
+[e :U 14 ]
+[e [\ -> . *U _Timer_cfg 1 `i , $ -> 0 `i 15
+ , $ -> 1 `i 20
+ 25 ]
+[e :U 13 ]
+"69
+[; ;timer.c: 69:   break;
+[e $U 4  ]
+"70
+[; ;timer.c: 70:   case 2:
+[e :U 26 ]
+"71
+[; ;timer.c: 71:     switch (Timer_cfg->Timer_Mode)
+[e $U 28  ]
+"72
+[; ;timer.c: 72:     {
+{
+"73
+[; ;timer.c: 73:       case 0:
+[e :U 29 ]
+"74
+[; ;timer.c: 74:         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
+[e $U 31  ]
+"75
+[; ;timer.c: 75:           {
+{
+"76
+[; ;timer.c: 76:             case 0xA0:
+[e :U 32 ]
+"78
+[; ;timer.c: 78:             break;
+[e $U 30  ]
+"79
+[; ;timer.c: 79:             case 0xDF:
+[e :U 33 ]
+"81
+[; ;timer.c: 81:             break;
+[e $U 30  ]
+"83
+[; ;timer.c: 83:           }
+}
+[e $U 30  ]
+[e :U 31 ]
+[e [\ -> . *U _Timer_cfg 2 `i , $ -> 160 `i 32
+ , $ -> 223 `i 33
+ 30 ]
+[e :U 30 ]
+"84
+[; ;timer.c: 84:       break;
+[e $U 27  ]
+"85
+[; ;timer.c: 85:       case 1:
+[e :U 34 ]
+"86
+[; ;timer.c: 86:         switch (Timer_cfg->Timer_Polling_Or_Interrupt)
+[e $U 36  ]
+"87
+[; ;timer.c: 87:           {
+{
+"88
+[; ;timer.c: 88:             case 0xA0:
+[e :U 37 ]
+"90
+[; ;timer.c: 90:             break;
+[e $U 35  ]
+"91
+[; ;timer.c: 91:             case 0xDF:
+[e :U 38 ]
+"93
+[; ;timer.c: 93:             break;
+[e $U 35  ]
+"95
+[; ;timer.c: 95:           }
+}
+[e $U 35  ]
+[e :U 36 ]
+[e [\ -> . *U _Timer_cfg 2 `i , $ -> 160 `i 37
+ , $ -> 223 `i 38
+ 35 ]
+[e :U 35 ]
+"96
+[; ;timer.c: 96:       break;
+[e $U 27  ]
+"97
+[; ;timer.c: 97:       default:
+[e :U 39 ]
+"99
+[; ;timer.c: 99:       break;
+[e $U 27  ]
+"100
+[; ;timer.c: 100:   }
+}
+[e $U 27  ]
+[e :U 28 ]
+[e [\ -> . *U _Timer_cfg 1 `i , $ -> 0 `i 29
+ , $ -> 1 `i 34
+ 39 ]
+[e :U 27 ]
+"101
+[; ;timer.c: 101:   break;
+[e $U 4  ]
+"102
+[; ;timer.c: 102:   default:
+[e :U 40 ]
+"104
+[; ;timer.c: 104:   break;
+[e $U 4  ]
+"105
+[; ;timer.c: 105: }
+}
+[e $U 4  ]
+[e :U 5 ]
+[e [\ -> . *U _Timer_cfg 0 `i , $ -> 0 `i 6
+ , $ -> 1 `i 12
+ , $ -> 2 `i 26
+ 40 ]
+[e :U 4 ]
+"109
+[; ;timer.c: 109: return ret_error;
+[e ) _ret_error ]
+[e $UE 3  ]
+"110
+[; ;timer.c: 110: }
+[e :UE 3 ]
+}
+"113
+[; ;timer.c: 113: void timer0_interrupt_ovfRoutine(void)
+[v _timer0_interrupt_ovfRoutine `(v ~T0 @X0 1 ef ]
+"114
+[; ;timer.c: 114: {
+{
+[e :U _timer0_interrupt_ovfRoutine ]
+[f ]
+"115
+[; ;timer.c: 115:   DIO_Write (1,0x04|0x08,0);
+[e ( _DIO_Write (3 , , -> -> 1 `i `uc -> | -> 4 `i -> 8 `i `uc -> -> 0 `i `uc ]
+"117
+[; ;timer.c: 117: }
+[e :UE 41 ]
+}
+"128
+[; ;timer.c: 128: ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
+[v _Timer_Start `(uc ~T0 @X0 1 ef2`uc`ui ]
+"129
+[; ;timer.c: 129: {
+{
+[e :U _Timer_Start ]
+"128
+[; ;timer.c: 128: ERROR_STATUS Timer_Start(uint8_t Timer_CH_NO, uint16_t Timer_Count)
+[v _Timer_CH_NO `uc ~T0 @X0 1 r1 ]
+[v _Timer_Count `ui ~T0 @X0 1 r2 ]
+"129
+[; ;timer.c: 129: {
+[f ]
+"130
+[; ;timer.c: 130:   uint8_t ret_error = 0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"133
+[; ;timer.c: 133:   return ret_error;
+[e ) _ret_error ]
+[e $UE 42  ]
+"134
+[; ;timer.c: 134: }
+[e :UE 42 ]
+}
+"145
+[; ;timer.c: 145: ERROR_STATUS Timer_Stop(uint8_t Timer_CH_NO)
+[v _Timer_Stop `(uc ~T0 @X0 1 ef1`uc ]
+"146
+[; ;timer.c: 146: {
+{
+[e :U _Timer_Stop ]
+"145
+[; ;timer.c: 145: ERROR_STATUS Timer_Stop(uint8_t Timer_CH_NO)
+[v _Timer_CH_NO `uc ~T0 @X0 1 r1 ]
+"146
+[; ;timer.c: 146: {
+[f ]
+"147
+[; ;timer.c: 147:   uint8_t ret_error = 0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"150
+[; ;timer.c: 150:   return ret_error;
+[e ) _ret_error ]
+[e $UE 43  ]
+"151
+[; ;timer.c: 151: }
+[e :UE 43 ]
+}
+"162
+[; ;timer.c: 162: ERROR_STATUS Timer_GetStatus(uint8_t Timer_CH_NO, uint8_t* Data)
+[v _Timer_GetStatus `(uc ~T0 @X0 1 ef2`uc`*uc ]
+"163
+[; ;timer.c: 163: {
+{
+[e :U _Timer_GetStatus ]
+"162
+[; ;timer.c: 162: ERROR_STATUS Timer_GetStatus(uint8_t Timer_CH_NO, uint8_t* Data)
+[v _Timer_CH_NO `uc ~T0 @X0 1 r1 ]
+[v _Data `*uc ~T0 @X0 1 r2 ]
+"163
+[; ;timer.c: 163: {
+[f ]
+"164
+[; ;timer.c: 164:   uint8_t ret_error = 0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"167
+[; ;timer.c: 167:   return ret_error;
+[e ) _ret_error ]
+[e $UE 44  ]
+"168
+[; ;timer.c: 168: }
+[e :UE 44 ]
+}
+"179
+[; ;timer.c: 179: ERROR_STATUS Timer_GetValue(uint8_t Timer_CH_NO, uint16_t* Data)
+[v _Timer_GetValue `(uc ~T0 @X0 1 ef2`uc`*ui ]
+"180
+[; ;timer.c: 180: {
+{
+[e :U _Timer_GetValue ]
+"179
+[; ;timer.c: 179: ERROR_STATUS Timer_GetValue(uint8_t Timer_CH_NO, uint16_t* Data)
+[v _Timer_CH_NO `uc ~T0 @X0 1 r1 ]
+[v _Data `*ui ~T0 @X0 1 r2 ]
+"180
+[; ;timer.c: 180: {
+[f ]
+"181
+[; ;timer.c: 181:   uint8_t ret_error = 0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"183
+[; ;timer.c: 183:   return ret_error;
+[e ) _ret_error ]
+[e $UE 45  ]
+"184
+[; ;timer.c: 184: }
+[e :UE 45 ]
+}

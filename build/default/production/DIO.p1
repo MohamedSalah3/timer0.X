@@ -1,0 +1,794 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"56 ./DIO_Config.h
+[; ;./DIO_Config.h: 56: typedef struct DIO_Cfg_s{
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1 DIO_Cfg_s port dir pin operation_mode ]
+"3 DIO.c
+[; ;DIO.c: 3: static uint8_t is_init = 0;
+[v _is_init `uc ~T0 @X0 1 s ]
+[i _is_init
+-> -> 0 `i `uc
+]
+"11
+[; ;DIO.c: 11: ERROR_STATUS DIO_init (DIO_Cfg_s *DIO_info)
+[v _DIO_init `(uc ~T0 @X0 1 ef1`*S1 ]
+"12
+[; ;DIO.c: 12: {
+{
+[e :U _DIO_init ]
+"11
+[; ;DIO.c: 11: ERROR_STATUS DIO_init (DIO_Cfg_s *DIO_info)
+[v _DIO_info `*S1 ~T0 @X0 1 r1 ]
+"12
+[; ;DIO.c: 12: {
+[f ]
+"13
+[; ;DIO.c: 13: uint8_t ret_error=0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"14
+[; ;DIO.c: 14: static uint8_t first_powerup_init = 0;
+[v F43 `uc ~T0 @X0 1 s first_powerup_init ]
+[i F43
+-> -> 0 `i `uc
+]
+"15
+[; ;DIO.c: 15: is_init=1;
+[e = _is_init -> -> 1 `i `uc ]
+"16
+[; ;DIO.c: 16:  if (first_powerup_init == 0) {
+[e $ ! == -> F43 `i -> 0 `i 3  ]
+{
+"17
+[; ;DIO.c: 17:     switch (DIO_info -> port)
+[e $U 5  ]
+"18
+[; ;DIO.c: 18:     {
+{
+"19
+[; ;DIO.c: 19:       case 0:
+[e :U 6 ]
+"20
+[; ;DIO.c: 20:   *((reg_type8_t)(0x0085))=0x00;
+[e = *U -> -> 133 `i `*Vuc -> -> 0 `i `uc ]
+"21
+[; ;DIO.c: 21:       break;
+[e $U 4  ]
+"22
+[; ;DIO.c: 22:       case 1:
+[e :U 7 ]
+"23
+[; ;DIO.c: 23:   *((reg_type8_t)(0x0086))=0x00;
+[e = *U -> -> 134 `i `*Vuc -> -> 0 `i `uc ]
+"24
+[; ;DIO.c: 24:       break;
+[e $U 4  ]
+"25
+[; ;DIO.c: 25:       case 2:
+[e :U 8 ]
+"26
+[; ;DIO.c: 26:   *((reg_type8_t)(0x0087))=0x00;
+[e = *U -> -> 135 `i `*Vuc -> -> 0 `i `uc ]
+"27
+[; ;DIO.c: 27:       break;
+[e $U 4  ]
+"28
+[; ;DIO.c: 28:       case 3:
+[e :U 9 ]
+"29
+[; ;DIO.c: 29:   *((reg_type8_t)(0x0088))=0x00;
+[e = *U -> -> 136 `i `*Vuc -> -> 0 `i `uc ]
+"30
+[; ;DIO.c: 30:       break;
+[e $U 4  ]
+"31
+[; ;DIO.c: 31:       case 4:
+[e :U 10 ]
+"32
+[; ;DIO.c: 32:   *((reg_type8_t)(0x0089))=0x00;
+[e = *U -> -> 137 `i `*Vuc -> -> 0 `i `uc ]
+"33
+[; ;DIO.c: 33:       break;
+[e $U 4  ]
+"34
+[; ;DIO.c: 34:   }
+}
+[e $U 4  ]
+[e :U 5 ]
+[e [\ -> . *U _DIO_info 0 `i , $ -> 0 `i 6
+ , $ -> 1 `i 7
+ , $ -> 2 `i 8
+ , $ -> 3 `i 9
+ , $ -> 4 `i 10
+ 4 ]
+[e :U 4 ]
+"35
+[; ;DIO.c: 35:   first_powerup_init++;
+[e ++ F43 -> -> 1 `i `uc ]
+"36
+[; ;DIO.c: 36:   }
+}
+[e :U 3 ]
+"37
+[; ;DIO.c: 37:  *((reg_type8_t)(0x009F)) =( DIO_info -> operation_mode) ;
+[e = *U -> -> 159 `i `*Vuc . *U _DIO_info 3 ]
+"38
+[; ;DIO.c: 38: if(DIO_info != ((void *)0)){
+[e $ ! != _DIO_info -> -> -> 0 `i `*v `*S1 11  ]
+{
+"39
+[; ;DIO.c: 39:     switch (DIO_info -> dir)
+[e $U 13  ]
+"40
+[; ;DIO.c: 40:     {
+{
+"41
+[; ;DIO.c: 41:       case 0x00:
+[e :U 14 ]
+"42
+[; ;DIO.c: 42:         switch (DIO_info -> port)
+[e $U 16  ]
+"43
+[; ;DIO.c: 43:         {
+{
+"44
+[; ;DIO.c: 44:             case 0:
+[e :U 17 ]
+"47
+[; ;DIO.c: 47:            *((reg_type8_t)(0x0085)) |=(DIO_info-> pin) ;
+[e =| *U -> -> 133 `i `*Vuc -> . *U _DIO_info 2 `uc ]
+"48
+[; ;DIO.c: 48:             break;
+[e $U 15  ]
+"49
+[; ;DIO.c: 49:             case 1:
+[e :U 18 ]
+"51
+[; ;DIO.c: 51:                 *((reg_type8_t)(0x0086)) |=(DIO_info->pin) ;
+[e =| *U -> -> 134 `i `*Vuc -> . *U _DIO_info 2 `uc ]
+"52
+[; ;DIO.c: 52:             break;
+[e $U 15  ]
+"53
+[; ;DIO.c: 53:             case 2:
+[e :U 19 ]
+"55
+[; ;DIO.c: 55:                 *((reg_type8_t)(0x0087)) |=(DIO_info->pin) ;
+[e =| *U -> -> 135 `i `*Vuc -> . *U _DIO_info 2 `uc ]
+"56
+[; ;DIO.c: 56:             break;
+[e $U 15  ]
+"57
+[; ;DIO.c: 57:             case 3:
+[e :U 20 ]
+"59
+[; ;DIO.c: 59:                 *((reg_type8_t)(0x0088)) |=(DIO_info->pin) ;
+[e =| *U -> -> 136 `i `*Vuc -> . *U _DIO_info 2 `uc ]
+"60
+[; ;DIO.c: 60:             break;
+[e $U 15  ]
+"61
+[; ;DIO.c: 61:             case 4:
+[e :U 21 ]
+"63
+[; ;DIO.c: 63:             *((reg_type8_t)(0x0089)) |=(DIO_info->pin) ;
+[e =| *U -> -> 137 `i `*Vuc -> . *U _DIO_info 2 `uc ]
+"64
+[; ;DIO.c: 64:             break;
+[e $U 15  ]
+"65
+[; ;DIO.c: 65:             default:
+[e :U 22 ]
+"66
+[; ;DIO.c: 66:             ret_error += 1 +14;
+[e =+ _ret_error -> + -> 1 `i -> 14 `i `uc ]
+"67
+[; ;DIO.c: 67:             break;
+[e $U 15  ]
+"68
+[; ;DIO.c: 68:     }
+}
+[e $U 15  ]
+[e :U 16 ]
+[e [\ -> . *U _DIO_info 0 `i , $ -> 0 `i 17
+ , $ -> 1 `i 18
+ , $ -> 2 `i 19
+ , $ -> 3 `i 20
+ , $ -> 4 `i 21
+ 22 ]
+[e :U 15 ]
+"69
+[; ;DIO.c: 69:   break;
+[e $U 12  ]
+"70
+[; ;DIO.c: 70:   case 0xFF:
+[e :U 23 ]
+"71
+[; ;DIO.c: 71:     switch (DIO_info -> port)
+[e $U 25  ]
+"72
+[; ;DIO.c: 72:     {
+{
+"73
+[; ;DIO.c: 73:       case 0:
+[e :U 26 ]
+"74
+[; ;DIO.c: 74:         *((reg_type8_t)(0x0085)) &=(~(DIO_info->pin)) ;
+[e =& *U -> -> 133 `i `*Vuc -> ~ -> . *U _DIO_info 2 `i `uc ]
+"75
+[; ;DIO.c: 75:       break;
+[e $U 24  ]
+"76
+[; ;DIO.c: 76:       case 1:
+[e :U 27 ]
+"77
+[; ;DIO.c: 77:         *((reg_type8_t)(0x0086)) &=(~(DIO_info->pin)) ;
+[e =& *U -> -> 134 `i `*Vuc -> ~ -> . *U _DIO_info 2 `i `uc ]
+"78
+[; ;DIO.c: 78:       break;
+[e $U 24  ]
+"79
+[; ;DIO.c: 79:       case 2:
+[e :U 28 ]
+"80
+[; ;DIO.c: 80:         *((reg_type8_t)(0x0087)) &=(~(DIO_info->pin)) ;
+[e =& *U -> -> 135 `i `*Vuc -> ~ -> . *U _DIO_info 2 `i `uc ]
+"81
+[; ;DIO.c: 81:       break;
+[e $U 24  ]
+"82
+[; ;DIO.c: 82:       case 3:
+[e :U 29 ]
+"83
+[; ;DIO.c: 83:         *((reg_type8_t)(0x0088)) &=(~(DIO_info->pin)) ;
+[e =& *U -> -> 136 `i `*Vuc -> ~ -> . *U _DIO_info 2 `i `uc ]
+"84
+[; ;DIO.c: 84:       break;
+[e $U 24  ]
+"85
+[; ;DIO.c: 85:       case 4:
+[e :U 30 ]
+"86
+[; ;DIO.c: 86:         *((reg_type8_t)(0x0089)) &=(~(DIO_info->pin)) ;
+[e =& *U -> -> 137 `i `*Vuc -> ~ -> . *U _DIO_info 2 `i `uc ]
+"87
+[; ;DIO.c: 87:       break;
+[e $U 24  ]
+"88
+[; ;DIO.c: 88:       default:
+[e :U 31 ]
+"89
+[; ;DIO.c: 89:       ret_error += 1 +14;
+[e =+ _ret_error -> + -> 1 `i -> 14 `i `uc ]
+"90
+[; ;DIO.c: 90:       break;
+[e $U 24  ]
+"91
+[; ;DIO.c: 91:   }
+}
+[e $U 24  ]
+[e :U 25 ]
+[e [\ -> . *U _DIO_info 0 `i , $ -> 0 `i 26
+ , $ -> 1 `i 27
+ , $ -> 2 `i 28
+ , $ -> 3 `i 29
+ , $ -> 4 `i 30
+ 31 ]
+[e :U 24 ]
+"92
+[; ;DIO.c: 92:   break;
+[e $U 12  ]
+"93
+[; ;DIO.c: 93: default:
+[e :U 32 ]
+"94
+[; ;DIO.c: 94: ret_error +=1 + 18;
+[e =+ _ret_error -> + -> 1 `i -> 18 `i `uc ]
+"95
+[; ;DIO.c: 95: break;
+[e $U 12  ]
+"96
+[; ;DIO.c: 96: }
+}
+[e $U 12  ]
+[e :U 13 ]
+[e [\ -> . *U _DIO_info 1 `i , $ -> 0 `i 14
+ , $ -> 255 `i 23
+ 32 ]
+[e :U 12 ]
+"97
+[; ;DIO.c: 97: }else
+}
+[e $U 33  ]
+[e :U 11 ]
+"98
+[; ;DIO.c: 98: {
+{
+"99
+[; ;DIO.c: 99: ret_error +=1 +16;
+[e =+ _ret_error -> + -> 1 `i -> 16 `i `uc ]
+"100
+[; ;DIO.c: 100: }
+}
+[e :U 33 ]
+"101
+[; ;DIO.c: 101: return ret_error;
+[e ) _ret_error ]
+[e $UE 2  ]
+"102
+[; ;DIO.c: 102: }
+[e :UE 2 ]
+}
+"131
+[; ;DIO.c: 131: ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value)
+[v _DIO_Write `(uc ~T0 @X0 1 ef3`uc`uc`uc ]
+"132
+[; ;DIO.c: 132: { uint8_t ret_error=0;
+{
+[e :U _DIO_Write ]
+"131
+[; ;DIO.c: 131: ERROR_STATUS DIO_Write (uint8_t GPIO, uint8_t pins, uint8_t value)
+[v _GPIO `uc ~T0 @X0 1 r1 ]
+[v _pins `uc ~T0 @X0 1 r2 ]
+[v _value `uc ~T0 @X0 1 r3 ]
+"132
+[; ;DIO.c: 132: { uint8_t ret_error=0;
+[f ]
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"134
+[; ;DIO.c: 134:   static uint8_t first_powerup = 0;
+[v F49 `uc ~T0 @X0 1 s first_powerup ]
+[i F49
+-> -> 0 `i `uc
+]
+"135
+[; ;DIO.c: 135: if (first_powerup == 0) {
+[e $ ! == -> F49 `i -> 0 `i 35  ]
+{
+"136
+[; ;DIO.c: 136: switch (GPIO) {
+[e $U 37  ]
+{
+"137
+[; ;DIO.c: 137:   case 0:
+[e :U 38 ]
+"138
+[; ;DIO.c: 138:   *((reg_type8_t)(0x0005))=0x00;
+[e = *U -> -> 5 `i `*Vuc -> -> 0 `i `uc ]
+"139
+[; ;DIO.c: 139:   break;
+[e $U 36  ]
+"140
+[; ;DIO.c: 140:   case 1:
+[e :U 39 ]
+"141
+[; ;DIO.c: 141:   *((reg_type8_t)(0x0006))=0x00;
+[e = *U -> -> 6 `i `*Vuc -> -> 0 `i `uc ]
+"142
+[; ;DIO.c: 142:   break;
+[e $U 36  ]
+"143
+[; ;DIO.c: 143:   case 2:
+[e :U 40 ]
+"144
+[; ;DIO.c: 144:   *((reg_type8_t)(0x0007))=0x00;
+[e = *U -> -> 7 `i `*Vuc -> -> 0 `i `uc ]
+"145
+[; ;DIO.c: 145:   break;
+[e $U 36  ]
+"146
+[; ;DIO.c: 146:   case 3:
+[e :U 41 ]
+"147
+[; ;DIO.c: 147:   *((reg_type8_t)(0x0008))=0x00;
+[e = *U -> -> 8 `i `*Vuc -> -> 0 `i `uc ]
+"148
+[; ;DIO.c: 148:   break;
+[e $U 36  ]
+"149
+[; ;DIO.c: 149:   case 4:
+[e :U 42 ]
+"150
+[; ;DIO.c: 150:   *((reg_type8_t)(0x0009))=0x00;
+[e = *U -> -> 9 `i `*Vuc -> -> 0 `i `uc ]
+"151
+[; ;DIO.c: 151:   break;
+[e $U 36  ]
+"152
+[; ;DIO.c: 152: }
+}
+[e $U 36  ]
+[e :U 37 ]
+[e [\ -> _GPIO `i , $ -> 0 `i 38
+ , $ -> 1 `i 39
+ , $ -> 2 `i 40
+ , $ -> 3 `i 41
+ , $ -> 4 `i 42
+ 36 ]
+[e :U 36 ]
+"153
+[; ;DIO.c: 153:   first_powerup++;
+[e ++ F49 -> -> 1 `i `uc ]
+"154
+[; ;DIO.c: 154: }
+}
+[e :U 35 ]
+"155
+[; ;DIO.c: 155: switch (value) {
+[e $U 44  ]
+{
+"156
+[; ;DIO.c: 156:   case 0xFF:
+[e :U 45 ]
+"157
+[; ;DIO.c: 157:     switch (GPIO) {
+[e $U 47  ]
+{
+"158
+[; ;DIO.c: 158:       case 0:
+[e :U 48 ]
+"159
+[; ;DIO.c: 159:       *((reg_type8_t)(0x0005)) |= pins;
+[e =| *U -> -> 5 `i `*Vuc -> _pins `uc ]
+"160
+[; ;DIO.c: 160:       break;
+[e $U 46  ]
+"161
+[; ;DIO.c: 161:       case 1:
+[e :U 49 ]
+"162
+[; ;DIO.c: 162:       *((reg_type8_t)(0x0006)) |= pins;
+[e =| *U -> -> 6 `i `*Vuc -> _pins `uc ]
+"163
+[; ;DIO.c: 163:       break;
+[e $U 46  ]
+"164
+[; ;DIO.c: 164:       case 2:
+[e :U 50 ]
+"165
+[; ;DIO.c: 165:       *((reg_type8_t)(0x0007)) |= pins;
+[e =| *U -> -> 7 `i `*Vuc -> _pins `uc ]
+"166
+[; ;DIO.c: 166:       break;
+[e $U 46  ]
+"167
+[; ;DIO.c: 167:       case 3:
+[e :U 51 ]
+"168
+[; ;DIO.c: 168:       *((reg_type8_t)(0x0008)) |= pins;
+[e =| *U -> -> 8 `i `*Vuc -> _pins `uc ]
+"169
+[; ;DIO.c: 169:       break;
+[e $U 46  ]
+"170
+[; ;DIO.c: 170:       case 4:
+[e :U 52 ]
+"171
+[; ;DIO.c: 171:       *((reg_type8_t)(0x0009)) |= pins;
+[e =| *U -> -> 9 `i `*Vuc -> _pins `uc ]
+"172
+[; ;DIO.c: 172:       break;
+[e $U 46  ]
+"173
+[; ;DIO.c: 173:       default:
+[e :U 53 ]
+"174
+[; ;DIO.c: 174:       ret_error +=1 +14;
+[e =+ _ret_error -> + -> 1 `i -> 14 `i `uc ]
+"175
+[; ;DIO.c: 175:       break;
+[e $U 46  ]
+"177
+[; ;DIO.c: 177:     }
+}
+[e $U 46  ]
+[e :U 47 ]
+[e [\ -> _GPIO `i , $ -> 0 `i 48
+ , $ -> 1 `i 49
+ , $ -> 2 `i 50
+ , $ -> 3 `i 51
+ , $ -> 4 `i 52
+ 53 ]
+[e :U 46 ]
+"178
+[; ;DIO.c: 178:   break;
+[e $U 43  ]
+"179
+[; ;DIO.c: 179:   case 0:
+[e :U 54 ]
+"180
+[; ;DIO.c: 180:     switch (GPIO) {
+[e $U 56  ]
+{
+"181
+[; ;DIO.c: 181:       case 0:
+[e :U 57 ]
+"182
+[; ;DIO.c: 182:       *((reg_type8_t)(0x0005)) &= (~pins);
+[e =& *U -> -> 5 `i `*Vuc -> ~ -> _pins `i `uc ]
+"183
+[; ;DIO.c: 183:       break;
+[e $U 55  ]
+"184
+[; ;DIO.c: 184:       case 1:
+[e :U 58 ]
+"185
+[; ;DIO.c: 185:       *((reg_type8_t)(0x0006)) &= (~pins);
+[e =& *U -> -> 6 `i `*Vuc -> ~ -> _pins `i `uc ]
+"186
+[; ;DIO.c: 186:       break;
+[e $U 55  ]
+"187
+[; ;DIO.c: 187:       case 2:
+[e :U 59 ]
+"188
+[; ;DIO.c: 188:       *((reg_type8_t)(0x0007)) &= (~pins);
+[e =& *U -> -> 7 `i `*Vuc -> ~ -> _pins `i `uc ]
+"189
+[; ;DIO.c: 189:       break;
+[e $U 55  ]
+"190
+[; ;DIO.c: 190:       case 3:
+[e :U 60 ]
+"191
+[; ;DIO.c: 191:       *((reg_type8_t)(0x0008)) &= (~pins);
+[e =& *U -> -> 8 `i `*Vuc -> ~ -> _pins `i `uc ]
+"192
+[; ;DIO.c: 192:       break;
+[e $U 55  ]
+"193
+[; ;DIO.c: 193:       case 4:
+[e :U 61 ]
+"194
+[; ;DIO.c: 194:       *((reg_type8_t)(0x0009)) &= (~pins);
+[e =& *U -> -> 9 `i `*Vuc -> ~ -> _pins `i `uc ]
+"195
+[; ;DIO.c: 195:       break;
+[e $U 55  ]
+"196
+[; ;DIO.c: 196:       default:
+[e :U 62 ]
+"197
+[; ;DIO.c: 197:       ret_error +=1 +14;
+[e =+ _ret_error -> + -> 1 `i -> 14 `i `uc ]
+"198
+[; ;DIO.c: 198:       break;
+[e $U 55  ]
+"200
+[; ;DIO.c: 200:     }
+}
+[e $U 55  ]
+[e :U 56 ]
+[e [\ -> _GPIO `i , $ -> 0 `i 57
+ , $ -> 1 `i 58
+ , $ -> 2 `i 59
+ , $ -> 3 `i 60
+ , $ -> 4 `i 61
+ 62 ]
+[e :U 55 ]
+"201
+[; ;DIO.c: 201:   break;
+[e $U 43  ]
+"202
+[; ;DIO.c: 202:   default:
+[e :U 63 ]
+"203
+[; ;DIO.c: 203: ret_error +=1 +18;
+[e =+ _ret_error -> + -> 1 `i -> 18 `i `uc ]
+"204
+[; ;DIO.c: 204:   break;
+[e $U 43  ]
+"205
+[; ;DIO.c: 205: }
+}
+[e $U 43  ]
+[e :U 44 ]
+[e [\ -> _value `i , $ -> 255 `i 45
+ , $ -> 0 `i 54
+ 63 ]
+[e :U 43 ]
+"206
+[; ;DIO.c: 206: return ret_error;
+[e ) _ret_error ]
+[e $UE 34  ]
+"207
+[; ;DIO.c: 207: }
+[e :UE 34 ]
+}
+"235
+[; ;DIO.c: 235: ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data)
+[v _DIO_Read `(uc ~T0 @X0 1 ef3`uc`uc`*uc ]
+"236
+[; ;DIO.c: 236: {
+{
+[e :U _DIO_Read ]
+"235
+[; ;DIO.c: 235: ERROR_STATUS DIO_Read (uint8_t GPIO,uint8_t pins, uint8_t *data)
+[v _GPIO `uc ~T0 @X0 1 r1 ]
+[v _pins `uc ~T0 @X0 1 r2 ]
+[v _data `*uc ~T0 @X0 1 r3 ]
+"236
+[; ;DIO.c: 236: {
+[f ]
+"237
+[; ;DIO.c: 237:   uint8_t ret_error=0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"238
+[; ;DIO.c: 238:   switch (GPIO)
+[e $U 66  ]
+"239
+[; ;DIO.c: 239:    { case 0:
+{
+[e :U 67 ]
+"240
+[; ;DIO.c: 240:     *data=(*((reg_type8_t)(0x0005)) & pins);
+[e = *U _data -> & -> *U -> -> 5 `i `*Vuc `i -> _pins `i `uc ]
+"241
+[; ;DIO.c: 241:     break;
+[e $U 65  ]
+"242
+[; ;DIO.c: 242:    case 1:
+[e :U 68 ]
+"243
+[; ;DIO.c: 243:     *data=(*((reg_type8_t)(0x0006)) & pins);
+[e = *U _data -> & -> *U -> -> 6 `i `*Vuc `i -> _pins `i `uc ]
+"244
+[; ;DIO.c: 244:     break;
+[e $U 65  ]
+"245
+[; ;DIO.c: 245:    case 2:
+[e :U 69 ]
+"246
+[; ;DIO.c: 246:     *data=(*((reg_type8_t)(0x0007)) & pins);
+[e = *U _data -> & -> *U -> -> 7 `i `*Vuc `i -> _pins `i `uc ]
+"247
+[; ;DIO.c: 247:     break;
+[e $U 65  ]
+"248
+[; ;DIO.c: 248:    case 3:
+[e :U 70 ]
+"249
+[; ;DIO.c: 249:     *data=(*((reg_type8_t)(0x0008)) & pins);
+[e = *U _data -> & -> *U -> -> 8 `i `*Vuc `i -> _pins `i `uc ]
+"250
+[; ;DIO.c: 250:                 break;
+[e $U 65  ]
+"251
+[; ;DIO.c: 251:         case 4:
+[e :U 71 ]
+"252
+[; ;DIO.c: 252:     *data=(*((reg_type8_t)(0x0009)) & pins);
+[e = *U _data -> & -> *U -> -> 9 `i `*Vuc `i -> _pins `i `uc ]
+"253
+[; ;DIO.c: 253:     break;
+[e $U 65  ]
+"254
+[; ;DIO.c: 254:     default:
+[e :U 72 ]
+"255
+[; ;DIO.c: 255:     ret_error += 14;
+[e =+ _ret_error -> -> 14 `i `uc ]
+"256
+[; ;DIO.c: 256:     break;
+[e $U 65  ]
+"257
+[; ;DIO.c: 257:    }
+}
+[e $U 65  ]
+[e :U 66 ]
+[e [\ -> _GPIO `i , $ -> 0 `i 67
+ , $ -> 1 `i 68
+ , $ -> 2 `i 69
+ , $ -> 3 `i 70
+ , $ -> 4 `i 71
+ 72 ]
+[e :U 65 ]
+"258
+[; ;DIO.c: 258:    if(*data > 0)
+[e $ ! > -> *U _data `i -> 0 `i 73  ]
+"259
+[; ;DIO.c: 259:    {
+{
+"260
+[; ;DIO.c: 260:     *data = 1;
+[e = *U _data -> -> 1 `i `uc ]
+"261
+[; ;DIO.c: 261:    }
+}
+[e :U 73 ]
+"263
+[; ;DIO.c: 263:   return ret_error;
+[e ) _ret_error ]
+[e $UE 64  ]
+"264
+[; ;DIO.c: 264: }
+[e :UE 64 ]
+}
+"289
+[; ;DIO.c: 289: ERROR_STATUS DIO_Toggle (uint8_t GPIO, uint8_t pins)
+[v _DIO_Toggle `(uc ~T0 @X0 1 ef2`uc`uc ]
+"290
+[; ;DIO.c: 290: {
+{
+[e :U _DIO_Toggle ]
+"289
+[; ;DIO.c: 289: ERROR_STATUS DIO_Toggle (uint8_t GPIO, uint8_t pins)
+[v _GPIO `uc ~T0 @X0 1 r1 ]
+[v _pins `uc ~T0 @X0 1 r2 ]
+"290
+[; ;DIO.c: 290: {
+[f ]
+"291
+[; ;DIO.c: 291:     uint8_t ret_error=0;
+[v _ret_error `uc ~T0 @X0 1 a ]
+[e = _ret_error -> -> 0 `i `uc ]
+"292
+[; ;DIO.c: 292:     switch (GPIO)
+[e $U 76  ]
+"293
+[; ;DIO.c: 293:      { case 0:
+{
+[e :U 77 ]
+"294
+[; ;DIO.c: 294:       *((reg_type8_t)(0x0005)) ^=(pins);
+[e =^ *U -> -> 5 `i `*Vuc -> _pins `uc ]
+"295
+[; ;DIO.c: 295:       break;
+[e $U 75  ]
+"296
+[; ;DIO.c: 296:      case 1:
+[e :U 78 ]
+"297
+[; ;DIO.c: 297:       *((reg_type8_t)(0x0006)) ^=(pins);
+[e =^ *U -> -> 6 `i `*Vuc -> _pins `uc ]
+"298
+[; ;DIO.c: 298:       break;
+[e $U 75  ]
+"299
+[; ;DIO.c: 299:      case 2:
+[e :U 79 ]
+"300
+[; ;DIO.c: 300:       *((reg_type8_t)(0x0007)) ^=(pins);
+[e =^ *U -> -> 7 `i `*Vuc -> _pins `uc ]
+"301
+[; ;DIO.c: 301:       break;
+[e $U 75  ]
+"302
+[; ;DIO.c: 302:      case 3:
+[e :U 80 ]
+"303
+[; ;DIO.c: 303:       *((reg_type8_t)(0x0008)) ^=(pins);
+[e =^ *U -> -> 8 `i `*Vuc -> _pins `uc ]
+"304
+[; ;DIO.c: 304:       break;
+[e $U 75  ]
+"305
+[; ;DIO.c: 305:      default:
+[e :U 81 ]
+"306
+[; ;DIO.c: 306:       ret_error +=14 +1;
+[e =+ _ret_error -> + -> 14 `i -> 1 `i `uc ]
+"307
+[; ;DIO.c: 307:       break;
+[e $U 75  ]
+"308
+[; ;DIO.c: 308:      }
+}
+[e $U 75  ]
+[e :U 76 ]
+[e [\ -> _GPIO `i , $ -> 0 `i 77
+ , $ -> 1 `i 78
+ , $ -> 2 `i 79
+ , $ -> 3 `i 80
+ 81 ]
+[e :U 75 ]
+"309
+[; ;DIO.c: 309:     return ret_error;
+[e ) _ret_error ]
+[e $UE 74  ]
+"310
+[; ;DIO.c: 310: }
+[e :UE 74 ]
+}
